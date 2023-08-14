@@ -65,8 +65,6 @@ public:
 	virtual uint32_t num_forward_activations() const = 0;
 	virtual std::pair<const PARAMS_T*, MatrixLayout> forward_activations(const Context& ctx, uint32_t layer) const = 0;
 
-	virtual void copy_params(PARAMS_T* new_params, PARAMS_T* new_inference_params, PARAMS_T* new_backward_params) { return;};
-
 	virtual void read_params(std::vector<PARAMS_T*> params, std::vector<PARAMS_T*> inference_params, std::vector<PARAMS_T*> backward_params, std::vector<PARAMS_T*> gradients) { return;};
 	virtual void set_params_from_matrix(std::vector<PARAMS_T*> params, std::vector<PARAMS_T*> inference_params, std::vector<PARAMS_T*> backward_params, std::vector<PARAMS_T*> gradients) { return;};
 };

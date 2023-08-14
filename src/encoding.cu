@@ -133,8 +133,6 @@ Encoding<T>* create_encoding(uint32_t n_dims_to_encode, const json& encoding, ui
 		equals_case_insensitive(encoding_type, "DenseGrid")
 	) {
 		result = create_grid_encoding<T>(n_dims_to_encode, encoding);
-	} else if (equals_case_insensitive(encoding_type, "DynamicGrid")) {
-		result = create_dynamic_grid_encoding<T>(n_dims_to_encode, encoding);
 	} else {
 		throw std::runtime_error{std::string{"Invalid encoding type: "} + encoding_type};
 	}

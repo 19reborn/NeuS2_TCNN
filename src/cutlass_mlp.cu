@@ -648,32 +648,6 @@ void CutlassMLP<T>::initialize_params(pcg32& rnd, float* params_full_precision, 
 }
 
 template <typename T>
-void CutlassMLP<T>::copy_params(T* new_params, T* new_inference_params, T* new_backward_params){
-	GPUMemory<T> new_params_buffer;
-	GPUMemory<T> new_inference_params_buffer;
-	// GPUMemory<char> new_backward_params_buffer;
-
-	uint32_t params_num = n_params();
-	new_params_buffer.resize(sizeof(T) * params_num);
-	new_inference_params_buffer.resize(sizeof(T) * params_num);
-	// new_backward_params_buffer.resize(sizeof(T) * params_num);
-
-	size_t current_pos = 0;
-	for (size_t i = 0; i < m_weight_matrices.size(); ++i) {
-		CUDA_CHECK_THROW(cudaMemcpy(new_params_buffer.data() + current_pos, m_weight_matrices[i].data(), sizeof(T) * m_weight_matrices[i].n_elements(), cudaMemcpyDeviceToDevice));
-		CUDA_CHECK_THROW(cudaMemcpy(new_inference_params_buffer.data() + current_pos, m_weight_matrices_inference[i].data(), sizeof(T) * m_weight_matrices[i].n_elements(), cudaMemcpyDeviceToDevice));
-		// CUDA_CHECK_THROW(cudaMemcpy(new_backward_params_buffer + current_pos, grid_tmp_buffer[i].data(), sizeof(T) * m_weight_matrices[i].n_elements(), cudaMemcpyDeviceToDevice));
-		current_pos += m_weight_matrices[i].n_elements();
-	}
-
-	new_params = (T*)new_params_buffer.data();
-	new_inference_params = (T*)new_inference_params_buffer.data();
-	// new_backward_params = new_backward_params_buffer.data();
-
-	return;
-}
-
-template <typename T>
 void CutlassMLP<T>::read_params(std::vector<T*> params, std::vector<T*> inference_params, std::vector<T*> backward_params, std::vector<T*> gradients){
 
 	for (size_t i = 0; i < m_weight_matrices.size(); ++i) {

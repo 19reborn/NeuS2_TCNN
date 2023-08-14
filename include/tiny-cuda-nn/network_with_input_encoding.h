@@ -243,10 +243,6 @@ public:
 		offset += m_encoding->n_params();
 	}
 
-	void copy_params(T* new_params, T* new_inference_params, T* new_backward_params) override{
-		return;
-	}
-
 	size_t n_params() const override {
 		return m_encoding->n_params() + m_network->n_params();
 	}

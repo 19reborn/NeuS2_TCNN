@@ -76,7 +76,6 @@ public:
 	void set_params(T* params, T* inference_params, T* backward_params, T* gradients) override;
 	void initialize_params(pcg32& rnd, float* params_full_precision, T* params, T* inference_params, T* backward_params, T* gradients, float scale = 1) override;
 
-	void copy_params(T* new_params, T* new_inference_params, T* new_backward_params) override;
 	void read_params(std::vector<T*> params, std::vector<T*> inference_params, std::vector<T*> backward_params, std::vector<T*> gradients) override;
 	void set_params_from_matrix(std::vector<T*> params, std::vector<T*> inference_params, std::vector<T*> backward_params, std::vector<T*> gradients) override;
 
