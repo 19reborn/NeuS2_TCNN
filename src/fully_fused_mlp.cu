@@ -1030,7 +1030,9 @@ void FullyFusedMLP<T, WIDTH>::backward_impl(
 	}
 }
 
-
+// Implemented by Yiming Wang <w752531540@gmail.com>
+// According to Equation 8,9 in NeuS2 <https://arxiv.org/abs/2212.05231>
+// Todo:: use fully fused operations
 template <typename T, int WIDTH>
 void FullyFusedMLP<T, WIDTH>::backward_backward_input_impl(
 	cudaStream_t stream,

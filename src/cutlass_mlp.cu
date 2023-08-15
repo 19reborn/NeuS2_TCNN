@@ -516,6 +516,8 @@ __global__ void kernel_compute_update_weight(
 	// printf("update_weight: %f", update_weight(i_row, i_col));
 }
 
+// Implemented by Yiming Wang <w752531540@gmail.com>
+// According to Equation 8,9 in NeuS2 <https://arxiv.org/abs/2212.05231>
 template <typename T>
 void CutlassMLP<T>::backward_backward_input_impl(
 	cudaStream_t stream,
@@ -530,7 +532,6 @@ void CutlassMLP<T>::backward_backward_input_impl(
 ) {
 
 	// there exists m_hidden_layers + 1 layers in total.
-
 	// Make sure our temporary buffers have the correct size for the given batch size
 	uint32_t batch_size = dL_doutput.n();
 
