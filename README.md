@@ -9,6 +9,10 @@ NeuS2: Fast Learning of Neural Implicit Surfaces for Multi-view Reconstruction
 Wang, Yiming and Han, Qin and Habermann, Marc and Daniilidis, Kostas and Theobalt, Christian and Liu, Lingjie
 ```
 
+Please also refer to the following repository
+
+[NeuS2](https://github.com/19reborn/NeuS2)
+
 ## Installation and usage
 Please refer to [Tiny CUDA Neural Networks](https://github.com/NVlabs/tiny-cuda-nn).
 
@@ -18,14 +22,10 @@ We would like to thank [Tiny CUDA Neural Networks](https://github.com/NVlabs/tin
 ## Citation
 
 ```bibtex
-@misc{https://doi.org/10.48550/arxiv.2212.05231,
-  doi = {10.48550/ARXIV.2212.05231},
-  url = {https://arxiv.org/abs/2212.05231},
-  author = {Wang, Yiming and Han, Qin and Habermann, Marc and Daniilidis, Kostas and Theobalt, Christian and Liu, Lingjie},
-  keywords = {Computer Vision and Pattern Recognition (cs.CV), Graphics (cs.GR), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {NeuS2: Fast Learning of Neural Implicit Surfaces for Multi-view Reconstruction},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@inproceedings{neus2,
+    title={NeuS2: Fast Learning of Neural Implicit Surfaces for Multi-view Reconstruction}, 
+    author={Wang, Yiming and Han, Qin and Habermann, Marc and Daniilidis, Kostas and Theobalt, Christian and Liu, Lingjie},
+    year={2023},
+    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}
 }
 ```
