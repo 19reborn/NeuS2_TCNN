@@ -33,7 +33,7 @@
 
 #include <tiny-cuda-nn/networks/cutlass_mlp.h>
 
-#if TCNN_MIN_GPU_ARCH >= 70
+#if TCNN_MIN_GPU_ARCH > 70
 #include <tiny-cuda-nn/networks/fully_fused_mlp.h>
 #endif
 
@@ -135,7 +135,7 @@ Network<T>* create_network(const json& network) {
 		if (!std::is_same<network_precision_t, __half>::value) {
 			throw std::runtime_error{"FullyFusedMLP can only be used if the network precision is set to __half."};
 		} else {
-#if TCNN_MIN_GPU_ARCH >= 70
+#if TCNN_MIN_GPU_ARCH > 70
 #  define TCNN_FULLY_FUSED_PARAMS \
 	network["n_input_dims"], \
 	network["n_output_dims"], \
